@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Create Cluster
+      local_action:
+        module: vmware_cluster
+        hostname: "{{hostname}}"
+        username: "{{username}}"
+        password: "{{password}}"
+        validate_certs: False
+        datacenter_name: "{{dc_name}}"
+        cluster_name: "{{cluster_name}}"
+        enable_ha: "{{ha}}"
+        enable_drs: "{{drs}}"
+        enable_vsan: "{{vsan}}"
+        state: "{{cluster_state}}"
