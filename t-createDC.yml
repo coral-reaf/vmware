@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Create Datacenter
+      local_action:
+        module: vmware_datacenter
+        hostname: "{{hostname}}"
+        username: "{{username}}"
+        password: "{{password}}"
+        validate_certs: False
+        datacenter_name: "{{dc_name}}"
+        state: "{{dc_state}}"
