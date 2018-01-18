@@ -1,0 +1,14 @@
+- hosts: 127.0.0.1
+  tasks:
+    - name: Standard Switch Config
+      action:
+        module: vmware_vswitch
+        hostname: "{{esxi_host}}"
+        username: "{{esx_user}}"
+        password: "{{esx_password}}"
+        validate_certs: False
+        switch: "{{vss_name}}"
+        nics: "{{vmnic_name}}"
+        mtu: "{{mtu}}"
+        state: "{{vss_state}}"
+      delegate_to: localhost
