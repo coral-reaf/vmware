@@ -1,0 +1,18 @@
+- hosts: 127.0.0.1
+  tasks:
+    - name: vmkernel Config
+      local_action:
+        module: vmware_vmkernel
+        hostname: "{{esxi_host}}"
+        username: "{{esx_user}}"
+        password: "{{esx_password}}"
+        validate_certs: False
+        vswitch_name: "{{vss_name}}"
+        portgroup_name: "{{pg_name}}"
+        vlan_id: "{{vlan_id}}"
+        ip_address: "{{ip_address}}"
+        subnet_mask: "{{subnet}}"
+        enable_vmotion: "{{vmotion}}"
+        enable_ft: "{{ft}}"
+        enable_mgmt: "{{mgmt}}"
+        enable_vsan: "{{vsan}}"
