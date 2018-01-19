@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: "{{esxi_host}}"
   tasks:
     - name: Standard Switch Config
       action:
