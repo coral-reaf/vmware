@@ -4,8 +4,8 @@
       local_action:
         module: vmware_vmkernel
         hostname: "{{esxi_host}}"
-        username: "{{esx_user}}"
-        password: "{{esx_password}}"
+        username: "{{esxi_user}}"
+        password: "{{esxi_password}}"
         validate_certs: False
         vswitch_name: "{{vss_name}}"
         portgroup_name: "{{pg_name}}"
