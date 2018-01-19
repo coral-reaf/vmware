@@ -1,6 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
+  # test
     - name: Add Remove ESXi host to vCenterServer
       vmware_host:
         hostname: "{{hostname}}"
