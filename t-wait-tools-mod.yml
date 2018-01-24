@@ -1,0 +1,13 @@
+- hosts: 127.0.0.1
+  tasks:
+    - name: Wait Tools VM
+      vmware_guest_tools_wait:
+        hostname: "{{hostname}}"
+        username: "{{user_name}}"
+        password: "{{password}}"
+        validate_certs: False
+        name: "{{vmname}}{{item}}"
+        folder: /DC/
+      delegate_to: localhost
+      register: facts
+      with_sequence: count={{number}}
