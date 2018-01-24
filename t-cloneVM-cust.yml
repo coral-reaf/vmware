@@ -11,11 +11,11 @@
       template: "{{template}}"
       networks:
       - name: VM Network
-        ip: 192.168.21.8{{item}}
-        netmask: 255.255.255.0
-        gateway: 192.168.21.1
+        ip: 192.168.1.{{item}}
+        netmask: <subnet>
+        gateway: <gateway ip>
         dns_servers:
-        - 192.168.21.11
+        - <dns ip>
       state: poweredon
       disk:
       - datastore: NFS
@@ -25,5 +25,5 @@
       customization:
         password: "{{password}}"
         productid: "{{productid}}"
-        dns_servers: 192.168.21.11
+        dns_servers: <dns ip>
     with_sequence: count={{number}}
