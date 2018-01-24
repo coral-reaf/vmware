@@ -1,0 +1,29 @@
+- hosts: 127.0.0.1
+  tasks:
+  - name: Boot up instance
+    vmware_guest:
+      hostname: "{{hostname}}"
+      username: "{{user_name}}"
+      password: "{{password}}"
+      datacenter: DC
+      cluster: CL
+      name: "{{vmname}}{{item}}"
+      template: "{{template}}"
+      networks:
+      - name: VM Network
+        ip: 192.168.21.8{{item}}
+        netmask: 255.255.255.0
+        gateway: 192.168.21.1
+        dns_servers:
+        - 192.168.21.11
+      state: poweredon
+      disk:
+      - datastore: NFS
+        size_gb: 15
+        type: thin
+      validate_certs: no
+      customization:
+        password: "{{password}}"
+        productid: "{{productid}}"
+        dns_servers: 192.168.21.11
+    with_sequence: count={{number}}
