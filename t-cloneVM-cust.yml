@@ -22,8 +22,4 @@
         size_gb: 15
         type: thin
       validate_certs: no
-      customization:
-        password: "{{password}}"
-        productid: "{{productid}}"
-        dns_servers: <dns ip>
     with_sequence: count={{number}}
