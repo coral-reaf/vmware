@@ -22,4 +22,6 @@
         size_gb: 15
         type: thin
       validate_certs: no
+      customization:
+        dns_servers: <dns ip>
     with_sequence: count={{number}}
