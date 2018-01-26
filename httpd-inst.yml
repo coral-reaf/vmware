@@ -1,0 +1,27 @@
+- hosts: all
+  tasks:
+    - name: httpd install & Firewall (80/443) config
+      yum:
+        name: httpd
+        state: latest
+    - name: httpd running & Enabled
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Firewall Setting 80
+      firewalld:
+        service: http
+        zone: public
+        state: enabled
+        permanent: true
+        immediate: true
+
+    - name: Firewall Setting 443
+      firewalld:
+        service: https
+        zone: public
+        state: enabled
+        permanent: true
+        immediate: true
