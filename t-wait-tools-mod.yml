@@ -11,3 +11,7 @@
       delegate_to: localhost
       register: facts
       with_sequence: count={{number}}
+    - name: Wait for system to become reachable over ssh
+      wait_for_connection:
+        delay: 120
+
