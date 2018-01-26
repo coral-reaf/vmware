@@ -14,8 +14,6 @@
         ip: 192.168.1.{{item}}
         netmask: <subnet>
         gateway: <gateway ip>
-        dns_servers:
-        - <dns ip>
       state: poweredon
       disk:
       - datastore: NFS
