@@ -1,8 +1,5 @@
 - hosts: all
   tasks:
-    - name: wait for SSH port up
-      wait_for: port=22 state=started delay=30
-      delegate_to: 127.0.0.1
     - name: httpd install & Firewall (80/443) config
       yum:
         name: httpd
