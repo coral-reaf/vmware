@@ -1,0 +1,26 @@
+- hosts: 127.0.0.1
+  tasks:
+  - name: Manage Maintenance Mode
+    local_action:
+      module: vmware_maintenancemode
+      hostname: "{{hostname}}"
+      username: "{{username}}"
+      password: "{{password}}"
+      validate_certs: False
+      esxi_hostname: "{{esxi_host}}"
+      evacuate: yes
+      state: present
+    when: nfs_state == "absent"
+  - name: Manage NFS Datastore
+    vmware_host_datastore:
+      esxi_hostname: "{{esxi_host}}"
+      hostname: "{{hostname}}"
+      username: "{{username}}"
+      password: "{{password}}"
+      datacenter_name: DC
+      datastore_name: "{{nfs_name}}"
+      datastore_type: nfs
+      nfs_path: "{{nfs_path}}"
+      nfs_server: "{{nfs_server}}"
+      state: "{{nfs_state}}"
+      validate_certs: no
