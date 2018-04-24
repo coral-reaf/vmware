@@ -1,3 +1,5 @@
+# This Playbook requires Ansible 2.5 or later, would not work with 2.4.x
+#
 - hosts: 127.0.0.1
   tasks:
   - name: Manage Maintenance Mode
