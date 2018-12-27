@@ -1,0 +1,24 @@
+# This Playbook requires Ansible 2.5 or later, would not work with 2.4.x
+#
+- hosts: 127.0.0.1
+  tasks:
+  - name: vmkernel Config
+    vmware_vmkernel:
+      esxi_hostname: "{{esxi_host}}"
+      hostname: "{{hostname}}"
+      username: "{{username}}"
+      password: "{{password}}"
+      validate_certs: no
+      vswitch_name: "{{vss_name}}"
+      state: "{{vmk_state}}"
+      portgroup_name: "{{pg_name}}"
+      vlan_id: "{{vlan_id}}"
+      network:
+        type: 'static'
+        ip_address: "{{ip_address}}"
+        subnet_mask: "{{subnet}}"
+      enable_vmotion: "{{vmotion}}"
+      enable_ft: "{{ft}}"
+      enable_mgmt: "{{mgmt}}"
+      enable_vsan: "{{vsan}}"
+
